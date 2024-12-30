@@ -45,7 +45,7 @@ def copiar_arquivo():
         return
 
 
-    comando = f"kubectl cp {pod_name}:/tmp/{file_name} ./{file_name} -n {namespace}"
+    comando = f"kubectl cp {pod_name}:/tmp/{file_name} /dumpdbs/{file_name} -n {namespace}"
     saida = executar_comando(comando)
     saida_text.insert(tk.END, saida + "COPIADO COM SUCESSO! \n")
 
@@ -66,7 +66,7 @@ def criar_dump():
         saida_text.insert(tk.END, saida + "\n")
         return
 
-    comando = f"kubectl cp {pod_name}:/tmp/{pod_name}.sql {pod_name}.sql -n {namespace}"
+    comando = f"kubectl cp {pod_name}:/tmp/{pod_name}.sql /dumpdbs/{pod_name}.sql -n {namespace}"
     saida = executar_comando(comando)
     saida_text.insert(tk.END, saida + "CRIADO COM SUCESSO! \n")
 
@@ -132,7 +132,7 @@ def exportar_todos_dbs():
         return
 
     # Copiar o arquivo de dump
-    comando = f"kubectl cp {pod_name}:/tmp/all_databases.sql all_databases.sql -n {namespace}"  # noqa: E501
+    comando = f"kubectl cp {pod_name}:/tmp/all_databases.sql /dumpdbs/all_databases.sql -n {namespace}"  # noqa: E501
     saida = executar_comando(comando)
     saida_text.insert(tk.END, saida + "EXPORTADO COM SUCESSO! \n")
 

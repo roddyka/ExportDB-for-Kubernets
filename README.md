@@ -22,6 +22,10 @@ Permite gerenciar pods Kubernetes e executar operações em bancos de dados MySQ
 - **Gerenciar Configurações Kubernetes**  
   Permite importar/exportar arquivos `kubeconfig` e alternar entre contextos do Kubernetes.  
 
+- **Arquivos .sql**  
+  Os .sql são salvos dentro da pasta /dumpdbs
+  A mesma pasta contem um arquivo chamado importdbs.sh que podera criar databases automaticamente com os arquivos .sql salvos, importar pasta dumpdbs para
+  o seu servidor com os arquivos ou rodar localmente
 ---
 
 ## Tecnologias Utilizadas
